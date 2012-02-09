@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ninject;
+using Scratch.Services;
 
 namespace Scratch
 {
@@ -32,9 +34,21 @@ namespace Scratch
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            SetUpDependencyInjection();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        public void SetUpDependencyInjection()
+        {
+            //Create Ninject DI kernel
+            IKernel kernel = new StandardKernel();
+
+            //Register services with Ninject DI Container
+            kernel.Bind<IMessageService>().To<MessageService>();
+
+            //Tell ASP.Net MVC 3 to use our Ninject DI Container
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }

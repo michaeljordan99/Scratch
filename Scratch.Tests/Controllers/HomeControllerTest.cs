@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scratch;
 using Scratch.Controllers;
+using Scratch.Services;
+using Scratch.Tests.Mocks;
 
 namespace Scratch.Tests.Controllers
 {
@@ -15,21 +17,25 @@ namespace Scratch.Tests.Controllers
         [TestMethod]
         public void Index()
         {
+            IMessageService service = new MessageServiceMock();
+
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(service);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Welcome to ASP.NET MVC!", result.ViewBag.Message);
+            Assert.AreEqual("Home Controller Message from Mock", result.ViewBag.Message);
         }
 
         [TestMethod]
         public void About()
         {
+            IMessageService service = new MessageService();
+
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(service);
 
             // Act
             ViewResult result = controller.About() as ViewResult;

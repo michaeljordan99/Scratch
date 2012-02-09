@@ -1,0 +1,10 @@
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Scratch.Tests.dll.config
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Scratch.Tests.dll
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Scratch.Tests.pdb
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Scratch.dll
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Scratch.pdb
+C:\Websites\Git\Scratch\Scratch.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Websites\Git\Scratch\Scratch.Tests\obj\Debug\Scratch.Tests.dll
+C:\Websites\Git\Scratch\Scratch.Tests\obj\Debug\Scratch.Tests.pdb
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Ninject.dll
+C:\Websites\Git\Scratch\Scratch.Tests\bin\Debug\Ninject.xml
