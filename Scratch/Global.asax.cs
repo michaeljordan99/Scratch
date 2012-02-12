@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Ninject;
+using Scratch.Repositories;
 using Scratch.Services;
 
 namespace Scratch
@@ -46,6 +47,7 @@ namespace Scratch
 
             //Register services with Ninject DI Container
             kernel.Bind<IMessageService>().To<MessageService>();
+            kernel.Bind<IRepository>().To<Repository>();
 
             //Tell ASP.Net MVC 3 to use our Ninject DI Container
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));

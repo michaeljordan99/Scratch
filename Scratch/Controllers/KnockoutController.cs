@@ -32,6 +32,11 @@ namespace Scratch.Controllers
             return View();
         }
 
+        public ActionResult Example3()
+        {
+            return View();
+        }
+
         public JsonResult Mail()
         {
             List<string> mail = new List<string>() { "Mail1", "Mail2" };
@@ -48,6 +53,17 @@ namespace Scratch.Controllers
             };
 
             return this.Json(availableMeals, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetUsers()
+        {
+            var users = new[]
+            { 
+                new { FirstName = "Json", LastName = "Data" },
+                new { FirstName = "Michael", LastName = "Jordan" } 
+            };
+
+            return this.Json(users, JsonRequestBehavior.AllowGet);
         }
     }
 }

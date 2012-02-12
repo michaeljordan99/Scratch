@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Example3";
+}
+
+<h2>Example 3</h2>
+
+<table>
+    <thead><tr>
+        <th>First Name</th><th>Last Name</th>
+    </tr></thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: users">
+        <td data-bind="text: firstName"</td>
+        <td data-bind="text: lastName"</td>
+    </tbody>
+</table>  
+
+<script type="text/javascript">
+
+    function User(firstName, lastName) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = function () {
+            return this.firstName + ' ' + this.lastName;
+        }
+    }
+
+    function UsersViewModel() {
+
+        var self = this;
+
+        /*this.users = [
+            new User('Michael', 'Jordan'),
+            new User('Joe', 'Smith')
+        ];*/
+        this.users = getUsersFromController();
+    }
+
+    function getUsers() {
+        var users = [
+            { firstName: "Jason", lastName: "Data" },
+            { firstName: "JSON", lastName: "Array" }
+        ];
+        return users;
+    }
+
+    function getUsersFromController() {
+
+        var users = [];
+
+        $.ajax({
+            url: "/Knockout/GetUsers",
+            context: document.body,
+            async: false,
+            success: function (data) {
+                //Map data onto Javascript User Class.
+                $.each(data, function (index, item) {
+                    users.push(new User(item.FirstName, item.LastName));
+                });
+            }
+        });
+
+        return users;
+    }
+
+    ko.applyBindings(new UsersViewModel());
+
+</script>

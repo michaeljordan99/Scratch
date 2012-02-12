@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Scratch;
 using Scratch.Controllers;
+using Scratch.Repositories;
 using Scratch.Services;
 using Scratch.Tests.Mocks;
 
@@ -32,7 +33,9 @@ namespace Scratch.Tests.Controllers
         [TestMethod]
         public void About()
         {
-            IMessageService service = new MessageService();
+            IRepository repository = new Repository();
+
+            IMessageService service = new MessageService(repository);
 
             // Arrange
             HomeController controller = new HomeController(service);
