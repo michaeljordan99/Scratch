@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{9BD44568-86E9-427C-A30F-3EECE5C2E85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch.Tests", "Scratch.Tests\Scratch.Tests.csproj", "{6E5B40C2-9EB9-43C0-957C-C22875CCBABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BD44568-86E9-427C-A30F-3EECE5C2E85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD44568-86E9-427C-A30F-3EECE5C2E85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD44568-86E9-427C-A30F-3EECE5C2E85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD44568-86E9-427C-A30F-3EECE5C2E85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E5B40C2-9EB9-43C0-957C-C22875CCBABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E5B40C2-9EB9-43C0-957C-C22875CCBABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E5B40C2-9EB9-43C0-957C-C22875CCBABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E5B40C2-9EB9-43C0-957C-C22875CCBABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
