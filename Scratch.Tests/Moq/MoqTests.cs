@@ -95,7 +95,86 @@ namespace Scratch.Tests.Moq
             Assert.IsInstanceOfType(testProduct, typeof(Product)); // Test type
 
             Assert.AreEqual("ASP.Net Unleashed", testProduct.Name); // Verify it is the right product
+        }
 
+        /// <summary>
+        /// Can we return a product By Name?
+        /// </summary>
+        [TestMethod]
+        public void CanReturnProductByName()
+        {
+            // Try finding a product by Name
+            Product testProduct = this.MockProductsRepository.FindByName("Silverlight Unleashed");
+
+            Assert.IsNotNull(testProduct); // Test if null
+
+            Assert.IsInstanceOfType(testProduct, typeof(Product)); // Test type
+
+            Assert.AreEqual(3, testProduct.ProductId); // Verify it is the right product
+        }
+
+        /// <summary>
+        /// Can we return all products?
+        /// </summary>
+        [TestMethod]
+        public void CanReturnAllProducts()
+        {
+            // Try finding all products
+            IList<Product> testProducts = this.MockProductsRepository.FindAll();
+
+            Assert.IsNotNull(testProducts); // Test if null
+
+            Assert.AreEqual(3, testProducts.Count); // Verify the correct Number
+        }
+
+        /// <summary>
+        /// Can we insert a new product?
+        /// </summary>
+        [TestMethod]
+        public void CanInsertProduct()
+        {
+            // Create a new product, not I do not supply an id
+            Product newProduct = new Product { Name = "Pro C#", Description = "Short description here", Price = 39.99 };
+
+            int productCount = this.MockProductsRepository.FindAll().Count;
+
+            Assert.AreEqual(3, productCount); // Verify the expected Number pre-insert
+
+            // try saving our new product
+            this.MockProductsRepository.Save(newProduct);
+
+            // demand a recount
+            productCount = this.MockProductsRepository.FindAll().Count;
+
+            Assert.AreEqual(4, productCount); // Verify the expected Number post-insert
+
+            // verify that our new product has been saved
+            Product testProduct = this.MockProductsRepository.FindByName("Pro C#");
+
+            Assert.IsNotNull(testProduct); // Test if null
+
+            Assert.IsInstanceOfType(testProduct, typeof(Product)); // Test type
+
+            Assert.AreEqual(4, testProduct.ProductId); // Verify it has the expected productid
+        }
+
+        /// <summary>
+        /// Can we update a product?
+        /// </summary>
+        [TestMethod]
+        public void CanUpdateProduct()
+        {
+            // Find a product by id
+            Product testProduct = this.MockProductsRepository.FindById(1);
+
+            // Change one of its properties
+            testProduct.Name = "C# 3.5 Unleashed";
+
+            // Save our changes.
+            this.MockProductsRepository.Save(testProduct);
+
+            // Verify the change
+            Assert.AreEqual("C# 3.5 Unleashed", this.MockProductsRepository.FindById(1).Name);
         }
     }
 }
