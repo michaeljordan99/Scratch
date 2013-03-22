@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebPOS_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WebPOS_DBModelStoreContainer">
+          <EntitySet Name="RegisteredTransactions" EntityType="WebPOS_DBModel.Store.RegisteredTransactions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TransactionResults" EntityType="WebPOS_DBModel.Store.TransactionResults" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="RegisteredTransactions">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionKey" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TransactionResults">
+          <Key>
+            <PropertyRef Name="TransactionResultId" />
+          </Key>
+          <Property Name="TransactionResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResultStatus" Type="bit" />
+          <Property Name="ResultMessage" Type="nvarchar(max)" />
+          <Property Name="TransactionType" Type="nvarchar(max)" />
+          <Property Name="ApprovalNumberResult" Type="nvarchar(max)" />
+          <Property Name="BatchNumber" Type="nvarchar(max)" />
+          <Property Name="BillingName" Type="nvarchar(max)" />
+          <Property Name="AVSResponseCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="AVSResponseText" Type="nvarchar" MaxLength="500" />
+          <Property Name="CVVResponseCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CVVResponseText" Type="nvarchar" MaxLength="500" />
+          <Property Name="AmountBalance" Type="decimal" Scale="2" />
+          <Property Name="AmountBill" Type="decimal" Scale="2" />
+          <Property Name="AmountFee" Type="decimal" Scale="2" />
+          <Property Name="AccountCardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountExpiryDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaskedAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountEntryMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="UniqueTransID" Type="nvarchar" MaxLength="500" />
+          <Property Name="Signature" Type="nvarchar" MaxLength="500" />
+          <Property Name="AccountHash" Type="nvarchar" MaxLength="500" />
+          <Property Name="AmountProcessed" Type="decimal" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebPOS_DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WebPOS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RegisteredTransactions" EntityType="WebPOS_DBModel.RegisteredTransaction" />
+          <EntitySet Name="TransactionResults" EntityType="WebPOS_DBModel.TransactionResult" />
+        </EntityContainer>
+        <EntityType Name="RegisteredTransaction">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionKey" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TransactionResult">
+          <Key>
+            <PropertyRef Name="TransactionResultId" />
+          </Key>
+          <Property Name="TransactionResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ResultStatus" Type="Boolean" />
+          <Property Name="ResultMessage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TransactionType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ApprovalNumberResult" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BatchNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BillingName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AVSResponseCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AVSResponseText" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="CVVResponseCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CVVResponseText" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AmountBalance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AmountBill" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AmountFee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AccountCardType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountExpiryDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaskedAccount" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountEntryMethod" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UniqueTransID" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Signature" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AccountHash" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AmountProcessed" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebPOS_DBModelStoreContainer" CdmEntityContainer="WebPOS_DBEntities">
+          <EntitySetMapping Name="RegisteredTransactions">
+            <EntityTypeMapping TypeName="WebPOS_DBModel.RegisteredTransaction">
+              <MappingFragment StoreEntitySet="RegisteredTransactions">
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="TransactionKey" ColumnName="TransactionKey" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionResults">
+            <EntityTypeMapping TypeName="WebPOS_DBModel.TransactionResult">
+              <MappingFragment StoreEntitySet="TransactionResults">
+                <ScalarProperty Name="TransactionResultId" ColumnName="TransactionResultId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="ResultStatus" ColumnName="ResultStatus" />
+                <ScalarProperty Name="ResultMessage" ColumnName="ResultMessage" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="ApprovalNumberResult" ColumnName="ApprovalNumberResult" />
+                <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+                <ScalarProperty Name="BillingName" ColumnName="BillingName" />
+                <ScalarProperty Name="AVSResponseCode" ColumnName="AVSResponseCode" />
+                <ScalarProperty Name="AVSResponseText" ColumnName="AVSResponseText" />
+                <ScalarProperty Name="CVVResponseCode" ColumnName="CVVResponseCode" />
+                <ScalarProperty Name="CVVResponseText" ColumnName="CVVResponseText" />
+                <ScalarProperty Name="AmountBalance" ColumnName="AmountBalance" />
+                <ScalarProperty Name="AmountBill" ColumnName="AmountBill" />
+                <ScalarProperty Name="AmountFee" ColumnName="AmountFee" />
+                <ScalarProperty Name="AccountCardType" ColumnName="AccountCardType" />
+                <ScalarProperty Name="AccountExpiryDate" ColumnName="AccountExpiryDate" />
+                <ScalarProperty Name="MaskedAccount" ColumnName="MaskedAccount" />
+                <ScalarProperty Name="AccountEntryMethod" ColumnName="AccountEntryMethod" />
+                <ScalarProperty Name="UniqueTransID" ColumnName="UniqueTransID" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="AccountHash" ColumnName="AccountHash" />
+                <ScalarProperty Name="AmountProcessed" ColumnName="AmountProcessed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -165,7 +165,7 @@ namespace Scratch.Tests.Moq
         public void CanUpdateProduct()
         {
             // Find a product by id
-            Product testProduct = this.MockProductsRepository.FindById(1);
+             Product testProduct = this.MockProductsRepository.FindById(1);
 
             // Change one of its properties
             testProduct.Name = "C# 3.5 Unleashed";

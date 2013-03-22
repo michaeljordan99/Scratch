@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Devices\DeviceTests.cs" />
     <Compile Include="FluentInterfaceTests.cs" />
     <Compile Include="Mocks\MessageServiceMock.cs" />
     <Compile Include="Moq\MoqRepositorySample.cs" />
