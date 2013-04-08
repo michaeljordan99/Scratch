@@ -19,7 +19,12 @@ C:\Scratch\Scratch\Scratch.Tests\obj\Debug\Scratch.Tests.csprojResolveAssemblyRe
 C:\Scratch\Scratch\Scratch.Tests\obj\Debug\Scratch.Tests.dll
 C:\Scratch\Scratch\Scratch.Tests\obj\Debug\Scratch.Tests.pdb
 C:\Scratch\Scratch\Scratch.Tests\bin\Debug\Moq.dll
-C:\Scratch\Scratch\Scratch.Tests\bin\Debug\Moq.pdb
 C:\Scratch\Scratch\Scratch.Tests\bin\Debug\Moq.xml
 C:\Scratch\Scratch\Scratch.Tests\bin\Debug\EntityFramework.dll
 C:\Scratch\Scratch\Scratch.Tests\bin\Debug\EntityFramework.xml
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\MongoDB.Bson.dll
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\MongoDB.Driver.dll
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\MongoDB.Bson.xml
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\MongoDB.Driver.xml
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Scratch\Scratch\Scratch.Tests\bin\Debug\Newtonsoft.Json.xml
